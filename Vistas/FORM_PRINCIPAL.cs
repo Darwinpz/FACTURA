@@ -30,7 +30,7 @@ namespace FACTURA
         {
 
             FORM_CLIENTES form_cli = new FORM_CLIENTES();
-            form_cli.Show();
+            //form_cli.Show();
 
 
         }
