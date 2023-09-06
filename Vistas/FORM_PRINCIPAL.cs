@@ -1,4 +1,5 @@
-﻿using FACTURA.Vistas;
+﻿using FACTURA.Controladores;
+using FACTURA.Vistas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,9 @@ namespace FACTURA
 {
     public partial class FORM_PRINCIPAL : Form
     {
+        public static Ctl_Producto ctl_Producto = new Ctl_Producto();
+        public static Ctl_Cliente ctl_cli = new Ctl_Cliente();
+
         public FORM_PRINCIPAL()
         {
             InitializeComponent();
@@ -30,7 +34,15 @@ namespace FACTURA
         {
 
             FORM_CLIENTES form_cli = new FORM_CLIENTES();
-            //form_cli.Show();
+            form_cli.Show();
+
+        }
+
+        private void BTN_FACTURAS_Click(object sender, EventArgs e)
+        {
+
+            FORM_FACTURA form_fact = new FORM_FACTURA();
+            form_fact.Show();
 
 
         }

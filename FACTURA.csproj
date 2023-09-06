@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\Ctl_factura.cs" />
     <Compile Include="Controladores\Ctl_Producto.cs" />
     <Compile Include="Controladores\Ctl_Cliente.cs" />
     <Compile Include="Vistas\FORM_CLIENTES.cs">
@@ -53,6 +54,12 @@
     </Compile>
     <Compile Include="Vistas\FORM_CLIENTES.Designer.cs">
       <DependentUpon>FORM_CLIENTES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FORM_FACTURA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FORM_FACTURA.Designer.cs">
+      <DependentUpon>FORM_FACTURA.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FORM_PRINCIPAL.cs">
       <SubType>Form</SubType>
@@ -74,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="Vistas\FORM_CLIENTES.resx">
       <DependentUpon>FORM_CLIENTES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FORM_FACTURA.resx">
+      <DependentUpon>FORM_FACTURA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FORM_PRINCIPAL.resx">
       <DependentUpon>FORM_PRINCIPAL.cs</DependentUpon>

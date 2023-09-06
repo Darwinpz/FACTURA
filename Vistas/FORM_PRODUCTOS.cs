@@ -14,19 +14,19 @@ namespace FACTURA.Vistas
 {
     public partial class FORM_PRODUCTOS : Form
     {
-        Ctl_Producto ctl_Producto = new Ctl_Producto();
-
+       
         public FORM_PRODUCTOS()
         {
             InitializeComponent();
             update_codigo();
 
+            FORM_PRINCIPAL.ctl_Producto.Ver_Tabla(TABLA);
         }
 
         public void update_codigo()
         {
 
-            TXT_CODIGO.Text = ctl_Producto.Obtener_cod().ToString();
+            TXT_CODIGO.Text = FORM_PRINCIPAL.ctl_Producto.Obtener_cod().ToString();
         }
 
         private void BTN_AGREGAR_Click(object sender, EventArgs e)
@@ -40,11 +40,11 @@ namespace FACTURA.Vistas
                 Stock = Convert.ToInt32(TXT_STOCK.Text)
             };
 
-            ctl_Producto.Add_Producto(prod);
+            FORM_PRINCIPAL.ctl_Producto.Add_Producto(prod);
 
             MessageBox.Show("PRODUCTO AGREGADO CORRECTAMENTE");
 
-            ctl_Producto.Ver_Tabla(TABLA);
+            FORM_PRINCIPAL.ctl_Producto.Ver_Tabla(TABLA);
 
             Limpiar();
             
@@ -55,7 +55,7 @@ namespace FACTURA.Vistas
             if (e.RowIndex != -1)
             {
                 string cod = TABLA.Rows[e.RowIndex].Cells[0].Value.ToString();
-                Producto prod = ctl_Producto.Buscar_codigo(cod);
+                Producto prod = FORM_PRINCIPAL.ctl_Producto.Buscar_codigo(cod);
 
                 TXT_CODIGO.Text = prod.Cod;
                 TXT_NOMBRE.Text = prod.Nombre;
@@ -75,18 +75,18 @@ namespace FACTURA.Vistas
 
         private void BTN_ELIMINAR_Click(object sender, EventArgs e)
         {
-            int pos = ctl_Producto.Obtener_pos_prod(TXT_CODIGO.Text.Trim());
+            int pos = FORM_PRINCIPAL.ctl_Producto.Obtener_pos_prod(TXT_CODIGO.Text.Trim());
 
             if (pos != -1)
             {
 
-                ctl_Producto.Eliminar_Producto(pos);
+                FORM_PRINCIPAL.ctl_Producto.Eliminar_Producto(pos);
 
                 MessageBox.Show("PRODUCTO ELIMINADO CORRECTAMENTE");
 
                 Limpiar();
 
-                ctl_Producto.Ver_Tabla(TABLA);
+                FORM_PRINCIPAL.ctl_Producto.Ver_Tabla(TABLA);
 
             }
             else
@@ -101,7 +101,7 @@ namespace FACTURA.Vistas
 
         private void BTN_EDITAR_Click(object sender, EventArgs e)
         {
-            int pos = ctl_Producto.Obtener_pos_prod(TXT_CODIGO.Text.Trim());
+            int pos = FORM_PRINCIPAL.ctl_Producto.Obtener_pos_prod(TXT_CODIGO.Text.Trim());
 
             if (pos != -1)
             {
@@ -114,13 +114,13 @@ namespace FACTURA.Vistas
                     Stock = Convert.ToInt32(TXT_STOCK.Text)
                 };
 
-                ctl_Producto.Editar_Producto(pos, prod);
+                FORM_PRINCIPAL.ctl_Producto.Editar_Producto(pos, prod);
 
                 MessageBox.Show("PRODUCTO ACTUALIZADO CORRECTAMENTE");
 
                 Limpiar();
 
-                ctl_Producto.Ver_Tabla(TABLA);
+                FORM_PRINCIPAL.ctl_Producto.Ver_Tabla(TABLA);
 
             }
             else

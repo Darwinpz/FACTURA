@@ -61,6 +61,7 @@
             this.BTN_FACTURAS.TabIndex = 2;
             this.BTN_FACTURAS.Text = "FACTURAS";
             this.BTN_FACTURAS.UseVisualStyleBackColor = true;
+            this.BTN_FACTURAS.Click += new System.EventHandler(this.BTN_FACTURAS_Click);
             // 
             // BTN_PRODUCTOS
             // 
